@@ -33,10 +33,21 @@ app.service('LazyDirectiveLoader', ['$rootScope', '$q', '$compile', 'DirectivesF
 
     // You can use this method to dynamically compile the loaded directive
     var _loadDirective = function(directiveName, attrsMap) {
-        var elementName = MyYalo.String.snakeCase(directiveName);
+        var elementName = _snakeCase(directiveName);
         var element = '<' + elementName + '></' + elementName + '>';
         // TODO: convert `attrsMap` to attributes on the directive element tag
         return $compile(element)($rootScope);
+    };
+
+    // a helper method to translate a camel case name to snake case
+    // I took this directly from the angular js libraries so i know
+    // it's done the same way exactly!
+    var _snakeCase = function(string) {
+        var SNAKE_CASE_REGEXP = /[A-Z]/g;
+        separator = separator || '-';
+        return name.replace(SNAKE_CASE_REGEXP, function(letter, pos) {
+            return (pos ? separator : '') + letter.toLowerCase();
+        });
     };
 
     return {
