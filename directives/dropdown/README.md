@@ -14,9 +14,9 @@ Example :
 
 <div class="dropdown-button" dropdown-trigger>
   <button value="click">
-  <div class="dropdown">
-    <div class="item">Option 1</div>
-    <div class="item">Option 2</div>
+  <div class="dropdown ng-hide">
+    <div class="item" ng-click="doSomething()">Option 1</div>
+    <div class="item" ng-click="doSomething()">Option 2</div>
   </div>
 </div>
 
