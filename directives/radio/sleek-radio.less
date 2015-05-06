@@ -1,0 +1,26 @@
+.radio-wrapper {
+  display:inline-block;
+  margin-right:10px;
+  cursor:pointer;
+  
+  .sleek-radio-outline {
+    display:inline-block;
+    height:16px; width:16px;
+    border-radius:50%;
+    border: solid 1px #a8a8a8;
+    text-align:center;
+    vertical-align:middle;
+    position:relative;
+    
+    .sleek-radio-dot {
+      display:none;
+      vertical-align:middle;
+      height:8px; width:8px;
+      background-color:#000;
+      border-radius:50%;
+      position:absolute;
+      top:3px; right:3px;
+      &.selected { display:inline-block; }
+    }
+  }
+}
