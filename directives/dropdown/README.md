@@ -5,6 +5,8 @@ This is how it's done :
  * Create a container with the attribute 'sleek-select'
  * Inside that container add a container with the class 'dropdown'. This is the dropdown that will be displayed when the user clicks on the outer container.
  
+This 'select' control lets you create the html for the options, so that you have full flexibility over the outcome.
+
 It's as easy as that. :)
 
 
