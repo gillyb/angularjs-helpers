@@ -12,13 +12,13 @@ Example :
 ```html
 <!-- ...some html... -->
 
-<div class="dropdown-button" sleek-select>
+<div class="my-select" sleek-select ng-model="selectValue">
   <div class="selected-value">
     <span ng-bind-template="{{selectedValue}}"></span>
   </div>
-  <div class="dropdown ng-hide">
-    <div class="item" ng-click="doSomething()">Option 1</div>
-    <div class="item" ng-click="doSomething()">Option 2</div>
+  <div class="dropdown" ng-hide="!visible">
+    <div class="item option" ng-click="doSomething()">Option 1</div>
+    <div class="item option" ng-click="doSomething()">Option 2</div>
   </div>
 </div>
 
