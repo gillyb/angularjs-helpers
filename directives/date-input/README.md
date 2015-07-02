@@ -1,5 +1,4 @@
-<br/>
-Allows binding to an input with a unix timestamp, but displays a user friendly date.<br/>
+Allows two-way binding with a text input and a unix timestamp, but displays a user friendly date.<br/>
 <br/>
 If your model looks like this :
 ```javascript
