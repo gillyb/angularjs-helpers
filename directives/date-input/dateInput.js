@@ -5,6 +5,7 @@ angular.module('myModule').directive('dateInput', [function() {
         link: function(scope, element, attrs, ngModel) {
             ngModel.$formatters.unshift(function(value) {
                 var date =  new Date(parseInt(value));
+                if (isNaN(date.getTime())) return value;
                 return date.getDate() + "/" + parseInt(date.getMonth()+1) + "/" + date.getFullYear();
             });
 
@@ -15,6 +16,7 @@ angular.module('myModule').directive('dateInput', [function() {
             ngModel.$parsers.unshift(function(viewValue) {
                 var dateParts = viewValue.split('/');
                 var date = new Date(dateParts[2], dateParts[1], dateParts[0]);
+                if (isNaN(date.getTime())) return viewValue;
                 return date.getTime();
             });
         }
