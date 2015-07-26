@@ -1,3 +1,24 @@
+//
+// cache-service.js
+// This is a general cache service for angularjs apps
+//
+// Used like this :
+//   CacheService.get('country-list', function() {
+//     return $http.get('/country-list'); 
+//   }, 60 * 60);
+//
+// The first parameter is the name of the cache key you want to retrieve.
+// Second parameter is a function that can retrieve the data to be cached. This is only
+//    invoked if the data isn't present in the cache, or is expired.
+// Third parameter is the amount of seconds to live in the cache. It's optional, and defaults to 10 min.
+//
+// Always returns a promise, then when resolved has the data you requested.
+//
+// You can also clear/invalidate values from the cache, like this:
+//   CacheService.clear('country-list');
+//
+// Behind the scenes, this cache service uses the sessionStorage api
+//
 angular.module('myModule').service('CacheService', ['$q', '$window', function($q, $window) {
 
     var _set = function(key, value, secondsToLive) {
