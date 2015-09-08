@@ -11,6 +11,10 @@ angular.module('myModule').directive('enterKey', [function() {
                     event.preventDefault();
                 }
             });
+        
+            scope.$on('$destroy', function() {
+                element.unbind();
+            });
         }
     };
 }]);
