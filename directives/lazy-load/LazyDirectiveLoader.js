@@ -56,4 +56,4 @@ app.service('LazyDirectiveLoader', ['$rootScope', '$q', '$compile', 'DirectivesF
         loadDirective: _loadDirective
     };
 
-  }]);
+}]);
