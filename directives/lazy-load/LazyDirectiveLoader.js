@@ -1,6 +1,7 @@
 app.service('LazyDirectiveLoader', ['$rootScope', '$q', '$compile', 'DirectivesFileMapper', function($rootScope, $q, $compile, DirectivesFileMapper) {
 
-    var _directivesLoaded = [];
+    var _directivesLoaded = [],
+     _modulesLoaded = [];
 
     var _load = function(directiveName) {
         // make sure the directive exists in the mapper
@@ -23,7 +24,7 @@ app.service('LazyDirectiveLoader', ['$rootScope', '$q', '$compile', 'DirectivesF
         var script = document.createElement('script');
         script.src = directiveFile;
         script.onload = function() {
-            _modulesLoaded.push(directiveFileName);
+            _modulesLoaded.push(directiveName);
             $rootScope.$apply(deferred.resolve);
         };
         document.getElementsByTagName('head')[0].appendChild(script);
