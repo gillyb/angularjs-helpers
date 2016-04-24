@@ -15,7 +15,7 @@ angular.module('myModule').directive('dateInput', [function() {
 
             ngModel.$parsers.unshift(function(viewValue) {
                 var dateParts = viewValue.split('/');
-                var date = new Date(dateParts[2], dateParts[1], dateParts[0]);
+                var date = new Date(Date.UTC(dateParts[2], dateParts[1], dateParts[0]));
                 if (isNaN(date.getTime())) return viewValue;
                 return date.getTime();
             });
