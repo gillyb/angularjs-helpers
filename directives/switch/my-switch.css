@@ -1,0 +1,45 @@
+.my-switch {
+  font-family: 'FontAwesome';
+  display: inline-block;
+  width: 45px; height: 25px;
+  input {
+    display: none;
+  }
+  label {
+    display: block;
+    width: 100%; height: 100%;
+    border-radius: 20px;
+    padding: 0;
+    transition: background 0.2s ease-in-out 0s;
+    position: relative;
+    background-color: #e85c41;
+    cursor: pointer;
+    overflow: hidden;
+    &.checked {
+      background-color: #72c1b0;
+    }
+    span {
+      position: absolute;
+      top: 2px; right: 22px;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      transition: right 0.1s ease-in 0s;
+      &:before {
+        position: absolute;
+        color: #fff;
+      }
+      &:before {
+        content: "\f00d";
+        right: -16px; top: 2px;
+      }
+      &.checked {
+        right: 2px;
+        &:before {
+          content: "\f00c";
+          right: 21px; top: 3px;
+        }
+      }
+    }
+  }
+}
