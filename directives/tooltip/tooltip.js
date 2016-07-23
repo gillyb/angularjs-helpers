@@ -20,7 +20,11 @@ angular.module('myModule').directive('myTooltip', ['$document', function($docume
                 var elementPos = e.target.getBoundingClientRect();
 
                 var margin = 8;
-                tooltip.style.top = (elementPos.top - tooltip.offsetHeight - margin) + 'px';
+                if (scope.position == 'top')
+                    tooltip.style.top = (elementPos.top - tooltip.offsetHeight - margin) + 'px';
+                else
+                    tooltip.style.top = (elementPos.bottom + margin) + 'px';
+                    
                 tooltip.style.left = (elementPos.left - (tooltip.offsetWidth / 2)) + 'px';
             });
 
