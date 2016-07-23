@@ -7,13 +7,14 @@ angular.module('myModule').directive('myTooltip', ['$document', function($docume
         template: html,
         transclude: true,
         scope: {
-            text: '@'
+            text: '@',
+            position: '@?'
         },
         link: function(scope, element) {
             var tooltip = angular.element('<div class="my-tooltip">' + scope.text + '</div>')[0];
             $document.find('body').append(tooltip);
 
-            element.bind('mouseover', function(e) {
+            element.bind('mouseover.tooltip', function(e) {
                 tooltip.style.display = 'inline-block';
 
                 var elementPos = e.target.getBoundingClientRect();
@@ -23,8 +24,12 @@ angular.module('myModule').directive('myTooltip', ['$document', function($docume
                 tooltip.style.left = (elementPos.left - (tooltip.offsetWidth / 2)) + 'px';
             });
 
-            element.bind('mouseout', function() {
+            element.bind('mouseout.tooltip', function() {
                 tooltip.style.display = 'none';
+            });
+            
+            scope.$on('$destroy', function() {
+                element.unbind('.tooltip');
             });
         }
     };
