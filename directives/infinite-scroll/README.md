@@ -5,9 +5,10 @@ Directive that will help you create pages with an infinite scroll effect.
 It detects that the user reached the end of the page, and can trigger a method you want, with passing it the current page we're on.
 
 <br/>
-Sample usage : 
+Sample usage :  
+
 index.html
-```
+```javascript
 // methodNameToTrigger - the method we want to trigger when the user reaches the bottom
 //                       This method will receive the currentPage number, which starts at 1.
 // threshold - Distance from bottom needed to trigger the method
